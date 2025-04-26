@@ -18,20 +18,22 @@
             height: 100vh;
             text-align: center;
             overflow: auto;
+            flex-direction: column;
         }
 
         .area {
             display: flex;
-            justify-content: space-between;
-            /* Distribui os itens nas extremidades */
+            flex-direction: column;
             align-items: center;
-            width: 90%;
+            width: 100%;
+            max-width: 1200px;
         }
 
         .container-fundo {
             position: relative;
-            width: 45%;
-            height: 400px;
+            width: 90%;
+            max-width: 500px;
+            height: 200px;
             border: 2px dashed #fff;
             background-color: #333;
             padding: 10px;
@@ -54,20 +56,13 @@
             margin-top: 20px;
         }
 
-        .controladores {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
         .titulo {
             font-family: monospace;
             font-size: 1.5rem;
             margin-bottom: 10px;
+            margin-top: 20px;
         }
 
-        /* Cores para os níveis de margem e padding */
         .nivel-0 {
             background-color: #444;
         }
@@ -93,7 +88,6 @@
             background-color: #74c0fc;
         }
 
-        /* Linha vermelha no meio */
         .linha-vermelha {
             width: 2px;
             background-color: #ff0000;
@@ -104,37 +98,6 @@
             transform: translateX(-50%);
         }
 
-        /* Legenda lateral */
-        .legenda {
-            width: 30%;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .legenda h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .nivel-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .nivel-item .cor {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        /* Estilo dos quadrados para o padding */
         .quadrado {
             display: inline-block;
             color: white;
@@ -182,142 +145,58 @@
             background-color: #74c0fc;
         }
 
-        .setas {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+        /* Tabela */
+        table {
             width: 100%;
+            margin-bottom: 20px;
         }
 
-        .seta {
-            width: 30px;
-            height: 30px;
-            background-color: white;
-            border-radius: 50%;
-            position: relative;
+        td {
+            padding: 10px;
+            vertical-align: middle;
         }
 
-        .seta::before {
-            content: "↓";
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: black;
-        }
-
-        .seta-0 {
-            background-color: #444;
-        }
-
-        .seta-1 {
-            background-color: #ff6b6b;
-        }
-
-        .seta-2 {
-            background-color: #ffa94d;
-        }
-
-        .seta-3 {
-            background-color: #ffe066;
-            color: #000;
-        }
-
-        .seta-4 {
-            background-color: #69db7c;
-        }
-
-        .seta-5 {
-            background-color: #74c0fc;
+        .btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
     </style>
 </head>
 
 <body>
     <div class="area">
-        <!-- Legenda para o Padding - Lado Esquerdo -->
-        <div class="legenda">
-            <h3>Legenda do Padding</h3>
-            <div class="nivel-item">
-                <div class="cor nivel-0"></div>
-                <span>Nível 0</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-1"></div>
-                <span>Nível 1</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-2"></div>
-                <span>Nível 2</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-3"></div>
-                <span>Nível 3</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-4"></div>
-                <span>Nível 4</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-5"></div>
-                <span>Nível 5</span>
-            </div>
-        </div>
+        <div class="text-center" style="width: 90%; max-width: 500px;">
+            <div class="titulo">Controles de Margin e Padding</div>
 
-        <!-- Linha Vermelha no Meio -->
-        <div class="linha-vermelha"></div>
-
-        <!-- Margem e Padding agora estão nas extremidades -->
-        <div class="text-center" style="width: 45%;">
-            <div class="titulo">Padding (p-0 a p-5)</div>
-            <div class="controladores">
-                <button class="btn btn-outline-danger btn-sm" onclick="alterarPadding(-1)">Diminuir Padding</button>
-                <button class="btn btn-outline-success btn-sm" onclick="alterarPadding(1)">Aumentar Padding</button>
-            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="btn-wrapper">
+                            <div>Padding</div>
+                            <button class="btn btn-outline-danger btn-sm" onclick="alterarPadding(-1)">Diminuir
+                                Padding</button>
+                            <button class="btn btn-outline-success btn-sm" onclick="alterarPadding(1)">Aumentar
+                                Padding</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-wrapper">
+                            <div>Margem</div>
+                            <button class="btn btn-outline-danger btn-sm" onclick="alterarMargin(-1)">Diminuir
+                                Margem</button>
+                            <button class="btn btn-outline-success btn-sm" onclick="alterarMargin(1)">Aumentar
+                                Margem</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
             <div class="container-fundo">
                 <div id="caixaPadding" class="caixa p-2 nivel-2">
                     Padding:
                     <div id="paddingSize" class="quadrado quadrado-2">2</div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Legenda para o Margin - Lado Direito -->
-        <div class="legenda">
-            <h3>Legenda do Margin</h3>
-            <div class="nivel-item">
-                <div class="cor nivel-0"></div>
-                <span>Nível 0</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-1"></div>
-                <span>Nível 1</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-2"></div>
-                <span>Nível 2</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-3"></div>
-                <span>Nível 3</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-4"></div>
-                <span>Nível 4</span>
-            </div>
-            <div class="nivel-item">
-                <div class="cor nivel-5"></div>
-                <span>Nível 5</span>
-            </div>
-        </div>
-
-        <div class="text-center" style="width: 45%;">
-            <div class="titulo">Margem (m-0 a m-5)</div>
-            <div class="controladores">
-                <button class="btn btn-outline-danger btn-sm" onclick="alterarMargin(-1)">Diminuir Margem</button>
-                <button class="btn btn-outline-success btn-sm" onclick="alterarMargin(1)">Aumentar Margem</button>
             </div>
 
             <div class="container-fundo">
@@ -330,29 +209,23 @@
         let margem = 2;
         let padding = 2;
 
-        // Função para alterar a margem e desenhar a transição
         function alterarMargin(valor) {
             const caixa = document.getElementById('caixaMargem');
             const novaMargem = Math.max(0, Math.min(5, margem + valor));
             if (novaMargem !== margem) {
-                // Remove classes anteriores
                 caixa.classList.remove(`m-${margem}`, `nivel-${margem}`);
-                // Atualiza valor
                 margem = novaMargem;
                 caixa.classList.add(`m-${margem}`, `nivel-${margem}`);
                 document.getElementById('valorMargin').innerText = margem;
             }
         }
 
-        // Função para alterar o padding e desenhar a transição
         function alterarPadding(valor) {
             const caixa = document.getElementById('caixaPadding');
             const paddingSize = document.getElementById('paddingSize');
             const novoPadding = Math.max(0, Math.min(5, padding + valor));
             if (novoPadding !== padding) {
-                // Remove classes anteriores
                 paddingSize.classList.remove(`quadrado-${padding}`);
-                // Atualiza valor
                 padding = novoPadding;
                 paddingSize.classList.add(`quadrado-${padding}`);
                 document.getElementById('paddingSize').innerText = padding;
@@ -361,6 +234,8 @@
             }
         }
     </script>
+
+    <footer class=" text-center mt-5 pt-5">Todos direitos reservado /FVN2025 </footer>
 </body>
 
 </html>
