@@ -517,28 +517,47 @@
 
         <div class="info-card">
             <h2>Como funcionam as abreviações</h2>
-            <ul>
+
+            <!-- Propriedade alinhado à esquerda -->
+            <ul style="list-style: none; padding: 0; text-align: left;">
                 <li><strong>Propriedade:</strong> <code>m</code> = margin, <code>p</code> = padding</li>
-                <li><strong>Lados:</strong>
-                    <ul>
-                        <li><code>t</code> = top (topo)</li>
-                        <li><code>b</code> = bottom (base)</li>
-                        <li><code>s</code> = start (início, esquerda em LTR)</li>
-                        <li><code>e</code> = end (fim, direita em LTR)</li>
-                        <li><code>x</code> = eixo horizontal (esquerda + direita)</li>
-                        <li><code>y</code> = eixo vertical (topo + base)</li>
+            </ul>
+
+            <!-- Duas colunas lado a lado -->
+            <div style="display: flex; justify-content: space-between; gap: 20px; text-align: left; margin-top: 20px;">
+                <div style="flex: 1;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li><strong>Tamanho:</strong> 0 a 5
+                            <ul>
+                                <li><code>0</code> = 0</li>
+                                <li><code>1</code> = 0.25rem (4px)</li>
+                                <li><code>2</code> = 0.5rem (8px)</li>
+                                <li><code>3</code> = 1rem (16px)</li>
+                                <li><code>4</code> = 1.5rem (24px)</li>
+                                <li><code>5</code> = 3rem (48px)</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li><strong>Tamanho:</strong> 0 a 5
-                    <ul>
-                        <li><code>0</code> = 0</li>
-                        <li><code>1</code> = 0.25rem (4px se root for 16px)</li>
-                        <li><code>2</code> = 0.5rem (8px)</li>
-                        <li><code>3</code> = 1rem (16px)</li>
-                        <li><code>4</code> = 1.5rem (24px)</li>
-                        <li><code>5</code> = 3rem (48px)</li>
+                </div>
+
+                <div style="flex: 1;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li><strong>Lados:</strong>
+                            <ul>
+                                <li><code>t</code> = top (topo)</li>
+                                <li><code>b</code> = bottom (base)</li>
+                                <li><code>s</code> = start (início, esquerda em LTR)</li>
+                                <li><code>e</code> = end (fim, direita em LTR)</li>
+                                <li><code>x</code> = eixo horizontal (esquerda + direita)</li>
+                                <li><code>y</code> = eixo vertical (topo + base)</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
+                </div>
+            </div>
+
+            <!-- Exemplo alinhado à esquerda também -->
+            <ul style="list-style: none; padding: 0; text-align: left; margin-top: 20px;">
                 <li><strong>Exemplo:</strong> <code>mt-3</code> = margin-top: 1rem</li>
             </ul>
         </div>
@@ -624,10 +643,10 @@
                 <div class="visualization-area">
                     <div id="caixaPadding" class="margin-box p-2 level-2">
                         <div class="code-display">
-                            <span id="paddingAbreviacao">p-2</span>
-                            <button class="copy-btn" onclick="copiarCodigo('paddingAbreviacao')">
+                            <span id="paddingAbreviacao" class="btn btn-dark">p-2</span>
+                            <!-- <button class="copy-btn me-5" onclick="copiarCodigo('paddingAbreviacao')">
                                 <i class="bi bi-clipboard"></i>
-                            </button>
+                            </button> -->
                         </div>
                         <div class="description">
                             <span id="paddingDescricao">padding: 0.5rem</span>
@@ -690,10 +709,10 @@
                 <div class="visualization-area">
                     <div id="caixaMargem" class="margin-box m-2 level-2">
                         <div class="code-display">
-                            <span id="marginAbreviacao">m-2</span>
-                            <button class="copy-btn" onclick="copiarCodigo('marginAbreviacao')">
+                            <span id="marginAbreviacao" class="btn btn-black">m-2</span>
+                            <!-- <button class="copy-btn" onclick="copiarCodigo('marginAbreviacao')">
                                 <i class="bi bi-clipboard"></i>
-                            </button>
+                            </button> -->
                         </div>
                         <div class="description">
                             <span id="marginDescricao">margin: 0.5rem</span>
