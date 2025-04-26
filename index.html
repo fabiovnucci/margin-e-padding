@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Margem de 0 a 5 com Transição</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .area {
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+        }
+
+        .container-fundo {
+            position: relative;
+            width: 70%;
+            height: 400px;
+            border: 2px dashed #fff;
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 40px;
+        }
+
+        .caixa {
+            width: 250px;
+            height: 250px;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .controladores {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .titulo {
+            font-family: monospace;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Cores para os níveis de margem */
+        .nivel-0 {
+            background-color: #444;
+        }
+
+        .nivel-1 {
+            background-color: #ff6b6b;
+        }
+
+        .nivel-2 {
+            background-color: #ffa94d;
+        }
+
+        .nivel-3 {
+            background-color: #ffe066;
+            color: #000;
+        }
+
+        .nivel-4 {
+            background-color: #69db7c;
+        }
+
+        .nivel-5 {
+            background-color: #74c0fc;
+        }
+
+        /* Linhas de evolução */
+        .linha-evolucao {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .linha-evolucao div {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        /* Legenda lateral */
+        .legenda {
+            width: 30%;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+        }
+
+        .legenda h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nivel-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .nivel-item .cor {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Estilo das setas */
+        .setas {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .seta {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .seta::before {
+            content: "↓";
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+        }
+
+        .seta-0 {
+            background-color: #444;
+        }
+
+        .seta-1 {
+            background-color: #ff6b6b;
+        }
+
+        .seta-2 {
+            background-color: #ffa94d;
+        }
+
+        .seta-3 {
+            background-color: #ffe066;
+            color: #000;
+        }
+
+        .seta-4 {
+            background-color: #69db7c;
+        }
+
+        .seta-5 {
+            background-color: #74c0fc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="area">
+        <!-- Legenda lateral -->
+        <div class="legenda">
+            <h3>Legenda dos Níveis</h3>
+            <div class="nivel-item">
+                <div class="cor nivel-0"></div>
+                <span>Nível 0</span>
+            </div>
+            <div class="nivel-item">
+                <div class="cor nivel-1"></div>
+                <span>Nível 1</span>
+            </div>
+            <div class="nivel-item">
+                <div class="cor nivel-2"></div>
+                <span>Nível 2</span>
+            </div>
+            <div class="nivel-item">
+                <div class="cor nivel-3"></div>
+                <span>Nível 3</span>
+            </div>
+            <div class="nivel-item">
+                <div class="cor nivel-4"></div>
+                <span>Nível 4</span>
+            </div>
+            <div class="nivel-item">
+                <div class="cor nivel-5"></div>
+                <span>Nível 5</span>
+            </div>
+        </div>
+
+        <!-- MARGEM -->
+        <div class="text-center">
+            <div class="titulo">Margem (m-0 a m-5)</div>
+            <div class="controladores">
+                <button class="btn btn-outline-danger btn-sm" onclick="alterarMargin(-1)">Diminuir Margem</button>
+                <button class="btn btn-outline-success btn-sm" onclick="alterarMargin(1)">Aumentar Margem</button>
+            </div>
+
+            <!-- Fundo visível para a margem -->
+            <div class="container-fundo">
+                <div id="caixaMargem" class="caixa m-2 nivel-2">Margem: <span id="valorMargin">2</span></div>
+            </div>
+
+            <!-- Linha de evolução (do 0 ao 5) -->
+
+        </div>
+    </div>
+
+    <script>
+        let margem = 2;
+
+        // Função para alterar a margem e desenhar a transição
+        function alterarMargin(valor) {
+            const caixa = document.getElementById('caixaMargem');
+            const novaMargem = Math.max(0, Math.min(5, margem + valor));
+            if (novaMargem !== margem) {
+                // Remove classes anteriores
+                caixa.classList.remove(`m-${margem}`, `nivel-${margem}`);
+                // Atualiza valor
+                margem = novaMargem;
+                caixa.classList.add(`m-${margem}`, `nivel-${margem}`);
+                document.getElementById('valorMargin').innerText = margem;
+
+                // Atualiza a linha de evolução
+                atualizarLinhaEvolucao();
+
+                // Atualiza as setas
+                atualizarSetas();
+            }
+        }
+
+        // Função para atualizar a linha de evolução da margem
+        function atualizarLinhaEvolucao() {
+            for (let i = 0; i <= 5; i++) {
+                const nivel = document.getElementById(`nivel-${i}`);
+                if (i <= margem) {
+                    nivel.classList.add('active');
+                } else {
+                    nivel.classList.remove('active');
+                }
+            }
+        }
+
+        // Função para atualizar as setas
+        function atualizarSetas() {
+            for (let i = 0; i <= 5; i++) {
+                const seta = document.getElementById(`seta-${i}`);
+                if (i <= margem) {
+                    seta.style.backgroundColor = document.querySelector(`.seta-${i}`).style.backgroundColor;
+                } else {
+                    seta.style.backgroundColor = 'transparent';
+                }
+            }
+        }
+
+        // Inicia a linha de evolução e as setas com o valor inicial da margem
+        atualizarLinhaEvolucao();
+        atualizarSetas();
+    </script>
+</body>
+
+</html>
